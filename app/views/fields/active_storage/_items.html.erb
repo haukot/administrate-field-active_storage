@@ -18,6 +18,7 @@ This partial renders one or more attachments
 %>
 
 <% field.attachments.each do |attachment| %>
+<% if attachment && attachment.persisted? %>
   <div class="attachments-listing">
     <%= render partial: 'fields/active_storage/item',
                locals: {
@@ -27,4 +28,5 @@ This partial renders one or more attachments
                    size: field.show_preview_size
                } %>
   </div>
+<% end %>
 <% end %>
